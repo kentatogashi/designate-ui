@@ -1,32 +1,19 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Servers</h1>
+<h2>New Server</h2>
+<%= form_tag(:controller => 'servers', :action => 'create', :method => :post) do %>
+<%= text_field_tag "name" %>
+<%= submit_tag "new server" %>
+<% end %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Status</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<h2>Delete Server</h2>
+<%= form_tag(:controller => 'servers', :action => 'destroy', :method => :delete) do %>
+  <%= text_field_tag "name_id" %>
+  <%= submit_tag "delete server" %> 
+<% end %>
 
-  <tbody>
-    <% @servers.each do |server| %>
-      <tr>
-        <td><%= server.name %></td>
-        <td><%= server.status %></td>
-        <td><%= link_to 'Show', server %></td>
-        <td><%= link_to 'Edit', edit_server_path(server) %></td>
-        <td><%= link_to 'Destroy', server, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<h2>API Result</h2>
+<%= raw ap(@response) rescue nil %>
 
-<br>
-
-<h1>Listing Response from Designate API</h1>
+<h2>Listing Server</h2>
 <%=  raw ap(@server_list) %>
-
-<%= link_to 'New Server', new_server_path %>

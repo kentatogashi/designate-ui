@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :servers
+  get 'servers', to: 'servers#index'
+  post   'servers/create', to: 'servers#create'
+  post 'servers/destroy', to: 'servers#destroy'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
