@@ -26,9 +26,7 @@
 
 <br>
 
-<pre>
-<%= @server_list.inspect %>
-</pre>
-
+<h1>Listing Response from Designate API</h1>
+<%=  raw ap(@server_list) %>
 
 <%= link_to 'New Server', new_server_path %>
