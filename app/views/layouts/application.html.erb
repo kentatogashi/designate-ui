@@ -9,9 +9,22 @@
 </head>
 <body>
 
-<h1>OpenStack Designate UI</h1>
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand">OpenStack Designate UI</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class=""><a href="./servers">Servers</a></li>
+      <li class=""><a href="./domains">Domains</a></li>
+      <li class=""><a href="./records">Records</a></li>
+    </ul>
+  </div>
+</nav>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>
