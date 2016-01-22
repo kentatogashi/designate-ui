@@ -53,3 +53,12 @@ gem 'less-rails'
 
 # rest client
 gem 'rest-client'
+
+# debugger
+gem 'pry-rails'
+gem 'pry-byebug'
+gem 'pry-stack_explorer'
+gem 'pry-coolline'
+gem 'awesome_print'
+gem 'hirb'
+gem 'hirb-unicode'
