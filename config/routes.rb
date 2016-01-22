@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get 'domains', to: 'domains#index'
   post 'domains/create', to: 'domains#create'
   post 'domains/destroy', to: 'domains#destroy'
+  get 'records', to: 'records#index'
+  post 'records/create', to: 'records#create'
+  post 'records/destroy', to: 'records#destroy'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
