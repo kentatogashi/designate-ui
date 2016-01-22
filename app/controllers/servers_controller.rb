@@ -1,10 +1,14 @@
 class ServersController < ApplicationController
   before_action :set_server, only: [:show, :edit, :update, :destroy]
 
+  include ServersHelper
+
   # GET /servers
   # GET /servers.json
   def index
-    @servers = Server.all
+    #@servers = Server.all
+    @servers = {}
+    @server_list = server_list
   end
 
   # GET /servers/1
