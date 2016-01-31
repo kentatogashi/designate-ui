@@ -62,3 +62,6 @@ gem 'pry-coolline'
 gem 'awesome_print'
 gem 'hirb'
 gem 'hirb-unicode'
+
+# testing
+gem 'rspec-rails'
