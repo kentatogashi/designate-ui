@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'records', to: 'records#index'
   post 'records/create', to: 'records#create'
   post 'records/destroy', to: 'records#destroy'
-
+  get 'records/ajax_search', to: 'records#ajax_search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

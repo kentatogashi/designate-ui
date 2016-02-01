@@ -1,6 +1,6 @@
 <h2>New record</h2>
 <%= form_tag(:controller => "records", :action => "create", :method => "post") do %>
-  <%= label_tag "domain_id" %>
+  <%= label_tag "domainId" %>
   <%= text_field_tag "domain_id" %>
   <%= label_tag "name" %>
   <%= text_field_tag "name" %>
@@ -23,3 +23,12 @@
 <h2>API Result</h2>
 
 <h2>Listing Records</h2>
+
+<%= form_tag( {:controller => 'records', :action => 'ajax_search'}, :method => 'get', :remote => true) do %>
+  <%= label_tag "domain_id" %>
+  <%= text_field_tag "domain_id" %>
+  <%= submit_tag "list records" %>
+<% end %>
+
+<div id="result"></div>
+
