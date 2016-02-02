@@ -1,0 +1,1 @@
+AwesomePrint.defaults = {:plain => true}
