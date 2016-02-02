@@ -7,7 +7,7 @@ class RecordsController < ApplicationController
   end
 
   def create
-    response = record_create params[:domain_id], params[:name], params[:type], params[:data]
+    response = record_create params[:domain], params[:name], params[:type], params[:data]
     respond_to do |format|
       if response.present?
         format.html {redirect_to records_url, notice: 'Record was successfully created.'}
@@ -18,7 +18,7 @@ class RecordsController < ApplicationController
   end
 
   def destroy
-    response = record_delete params[:domain_id], params[:name_id]
+    response = record_delete params[:domain], params[:name_id]
     respond_to do |format|
       if response.blank?
         format.html {redirect_to records_url, notice: 'Record was successfully destroyed.'}
@@ -29,7 +29,7 @@ class RecordsController < ApplicationController
   end
 
   def ajax_search
-    @record_list = record_list params[:domain_id]
+    @record_list = record_list params[:domain]
     logger.debug(@record_list)
     render
   end
