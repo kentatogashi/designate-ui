@@ -15,4 +15,4 @@
 //= require turbolinks
 //= require lumen/loader
 //= require lumen/bootswatch
-
+//= require_tree .
