@@ -7,7 +7,14 @@ class RecordsController < ApplicationController
   end
 
   def create
-    response = record_create params[:domain], params[:name], params[:type], params[:data]
+    params_hash = {
+      domain:   params[:domain],
+      name:     params[:name],
+      type:     params[:type],
+      data:     params[:data],
+      priority: params[:priority].to_i || nil
+    }
+    response = record_create params_hash
     respond_to do |format|
       if response.present?
         format.html {redirect_to records_url, notice: 'Record was successfully created.'}
