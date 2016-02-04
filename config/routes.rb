@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-
-namespace :v1 do
+=begin
   get 'servers', to: 'servers#index'
   post 'servers/create', to: 'servers#create'
   post 'servers/destroy', to: 'servers#destroy'
@@ -11,8 +10,20 @@ namespace :v1 do
   post 'records/create', to: 'records#create'
   post 'records/destroy', to: 'records#destroy'
   get 'records/ajax_search', to: 'records#ajax_search'
-end
+=end
 
+  namespace :v1 do
+    get 'servers', to: 'servers#index'
+    post 'servers/create', to: 'servers#create'
+    delete 'servers/destroy', to: 'servers#destroy'
+    get 'domains', to: 'domains#index'
+    post 'domains/create', to: 'domains#create'
+    delete 'domains/destroy', to: 'domains#destroy'
+    get 'records', to: 'records#index'
+    post 'records/create', to: 'records#create'
+    delete 'records/destroy', to: 'records#destroy'
+    get 'records/ajax_search', to: 'records#ajax_search'
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

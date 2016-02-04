@@ -1,0 +1,36 @@
+<div id="err"></div>
+
+<h2>New record</h2>
+<%= form_tag({:controller => "records", :action => "create"}, :method => "post") do %>
+  <%= label_tag "domain" %>
+  <%= text_field_tag "domain", nil, :required => true %>
+  <%= label_tag "type" %>
+  <%= select_tag 'type', options_for_select([
+  ['A', 'A'], ['MX', 'MX'], ['TXT', 'TXT'], ['HINFO', 'HINFO'], ['CNAME', 'CNAME'], ['AAAA', 'AAAA']
+  ]) %>
+  <%= label_tag "name" %>
+  <%= text_field_tag "name", nil, :required => true %>
+  <%= label_tag "data" %>
+  <%= text_field_tag "data", nil, :required => true %>
+  <%= submit_tag "new record" %>
+<% end %>
+
+<h2>Delete record</h2>
+<%= form_tag({:controller => "records", :action => "destroy"}, :method => "delete") do %>
+  <%= label_tag "domain" %>
+  <%= text_field_tag "domain", nil, :required => true %>
+  <%= label_tag "name_id" %>
+  <%= text_field_tag "name_id", nil, :required => true %>
+  <%= submit_tag "delete record" %>
+<% end %>
+
+<h2>Listing Records</h2>
+
+<%= form_tag( {:controller => 'records', :action => 'ajax_search'}, :method => 'get', :remote => true) do %>
+  <%= label_tag "domain" %>
+  <%= text_field_tag "domain", nil, :required => true %>
+  <%= submit_tag "list records" %>
+<% end %>
+
+<div id="result"></div>
+
