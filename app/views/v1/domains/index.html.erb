@@ -1,24 +1,20 @@
 <h2>New domain</h2>
 <%= form_tag({:controller => "domains", :action => "create"}, :method => "post") do %>
   <%= label_tag "name" %>
-  <%= text_field_tag "name" %>
+  <%= text_field_tag "name", nil, :required => true %>
   <%= label_tag "ttl" %>
-  <%= text_field_tag "ttl" %>
+  <%= text_field_tag "ttl", nil, :required => true %>
   <%= label_tag "email" %>
-  <%= text_field_tag "email" %>
+  <%= text_field_tag "email", nil, :required => true %>
   <%= submit_tag "new domain" %>
 <% end %>
 
 <h2>Delete domain</h2>
 <%= form_tag({:controller => "domains", :action => "destroy"}, :method => "delete") do %>
   <%= label_tag "name_id" %>
-  <%= text_field_tag "name_id" %>
+  <%= text_field_tag "name_id", nil, :required => true %>
   <%= submit_tag "delete domain" %>
 <% end %>
-
-<h2>API Result</h2>
-<h2>Listing Domains</h2>
-<%= raw ap(@response) rescue nil %>
 
 <h2>Listing Domains</h2>
 <%= raw ap(@domain_list) %>

@@ -1,12 +1,12 @@
 <h2>New Server</h2>
 <%= form_tag({:controller => 'servers', :action => 'create'}, :method => :post) do %>
-<%= text_field_tag "name" %>
+  <%= text_field_tag "name", nil, :required => true %>
 <%= submit_tag "new server" %>
 <% end %>
 
 <h2>Delete Server</h2>
 <%= form_tag({:controller => 'servers', :action => 'destroy'}, :method => :delete) do %>
-  <%= text_field_tag "name_id" %>
+  <%= text_field_tag "name_id", nil, :required => true %>
   <%= submit_tag "delete server" %> 
 <% end %>
 
