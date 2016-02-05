@@ -1,5 +1,7 @@
 module V1
   module RecordsHelper
+    include V1::ApplicationHelper
+
     def record_list
     end
 
@@ -44,7 +46,9 @@ module V1
       end
     end
 
+
     private
+=begin
     def domain_id_by_domain domain
       response = RestClient.get os_endpoint
       logger.debug(response)
@@ -61,7 +65,7 @@ module V1
       end
       raise "cannot search domain id"
     end
-
+=end
     def os_endpoint
       "#{OS_ENDPOINT}/domains"
     end

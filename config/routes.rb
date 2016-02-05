@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     get 'domains', to: 'domains#index'
     post 'domains/create', to: 'domains#create'
     delete 'domains/destroy', to: 'domains#destroy'
+    get 'domains/ajax_search', to: 'domains#ajax_search'
     get 'records', to: 'records#index'
     post 'records/create', to: 'records#create'
     delete 'records/destroy', to: 'records#destroy'

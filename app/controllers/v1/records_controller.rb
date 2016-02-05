@@ -18,9 +18,9 @@ module V1
       response = record_create params_hash
       respond_to do |format|
         if response.present?
-          format.html {redirect_to records_url, notice: 'Record was successfully created.'}
+          format.html {redirect_to v1_records_url, notice: 'Record was successfully created.'}
         else
-          format.html {redirect_to records_url, notice: 'Creation was failed.'}
+          format.html {redirect_to v1_records_url, notice: 'Creation was failed.'}
         end
       end
     end
@@ -29,9 +29,9 @@ module V1
       response = record_delete params[:domain], params[:name_id]
       respond_to do |format|
         if response.blank?
-          format.html {redirect_to records_url, notice: 'Record was successfully destroyed.'}
+          format.html {redirect_to v1_records_url, notice: 'Record was successfully destroyed.'}
         else
-          format.html {redirect_to records_url, notice: 'Deletion was falied'}
+          format.html {redirect_to v1_records_url, notice: 'Deletion was falied'}
         end
       end
     end

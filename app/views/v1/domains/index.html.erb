@@ -16,5 +16,13 @@
   <%= submit_tag "delete domain" %>
 <% end %>
 
+<h2>Search Domain</h2>
+<%= form_tag({:controller => "domains", :action => "ajax_search"}, :method => "get", :remote => true) do %>
+  <%= label_tag "domain" %>
+  <%= text_field_tag "domain", nil, :required => true %>
+  <%= submit_tag "serach domain" %>
+<% end %>
+<div id="result"></div>
+
 <h2>Listing Domains</h2>
 <%= raw ap(@domain_list) %>

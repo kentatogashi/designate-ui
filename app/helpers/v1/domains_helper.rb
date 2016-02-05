@@ -1,5 +1,7 @@
 module V1
   module DomainsHelper
+    include V1::ApplicationHelper
+
     def domain_list
       response = RestClient.get os_endpoint
       logger.debug(response)
@@ -15,6 +17,16 @@ module V1
       response = RestClient.post "#{os_endpoint}", {:name => name, :ttl => ttl, :email => email}.to_json,
         :content_type => :json, :accept => :json
       logger.debug(response)
+      if response.code == 200
+        JSON.parse(response)
+      else
+        false
+      end
+    end
+
+    def domain_search domain
+      domain_id = domain_id_by_domain domain
+      response = RestClient.get "#{os_endpoint}/#{domain_id}"
       if response.code == 200
         JSON.parse(response)
       else
