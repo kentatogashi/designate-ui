@@ -16,24 +16,22 @@ module V1
         priority: params[:priority].to_i || nil
       }
       response = record_create params_hash
-      respond_to do |format|
-        if response.present?
-          format.html {redirect_to v1_records_url, notice: 'Record was successfully created.'}
-        else
-          format.html {redirect_to v1_records_url, notice: 'Creation was failed.'}
-        end
+      if response.present?
+        flash[:success] = 'Creation was done'
+      else
+        flash[:error] = 'Failed to creation'
       end
+      redirect_to v1_records_url
     end
 
     def destroy
       response = record_delete params[:domain], params[:name_id]
-      respond_to do |format|
-        if response.blank?
-          format.html {redirect_to v1_records_url, notice: 'Record was successfully destroyed.'}
-        else
-          format.html {redirect_to v1_records_url, notice: 'Deletion was falied'}
-        end
+      if response.blank?
+        flash[:success] = 'Deletion was done'
+      else
+        flash[:error] = 'Failed to deletion'
       end
+      redirect_to v1_records_url
     end
 
     def ajax_search

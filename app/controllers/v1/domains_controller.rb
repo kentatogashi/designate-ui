@@ -9,14 +9,12 @@ module V1
 
     def create
       response = domain_create params[:name], params[:ttl].to_i, params[:email]
-      respond_to do |format|
-        if response.present?
-          format.html {redirect_to v1_domains_url, notice: 'Domain was successfully created.'}
-        else
-          format.html {redirect_to v1_domains_url, notice: 'Creation was failed.'}
-          format.html { render :new }
-        end
+      if response.present?
+        flash[:success] = 'Creation was done'
+      else
+        flash[:error] = 'Failed to create domaind'
       end
+      redirect_to v1_domains_url
     end
 
     def ajax_search
@@ -26,14 +24,12 @@ module V1
 
     def destroy
       response = domain_delete params[:name_id]
-      respond_to do |format|
-        if response.blank?
-          format.html {redirect_to v1_domains_url, notice: 'Domain was successfully destroyed.'}
-        else
-          format.html {redirect_to v1_domains_url, notice: 'Deletion was falied'}
-        end
+      if response.blank?
+        flash[:success] = 'Deletion was done'
+      else
+        flash[:error] = 'Failed to delete domain'
       end
+      redirect_to v1_domains_url
     end
   end
 end
-

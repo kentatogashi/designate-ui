@@ -9,22 +9,19 @@ module V1
     def create
         response = server_create params[:name]
         if response.present?
-          flash[:notice] = "Server was successfully created."
+          flash[:success] = "Creation was done"
         else
-          flash[:error] = "Creation was failed."
+          flash[:error] = "Failed to create server"
         end
         redirect_to v1_servers_url
-    end
-
-    def update
     end
 
     def destroy
       response = server_destroy params[:name_id]
       if response
-        flash[:notice] = "Server was successfully destroyed"
+        flash[:success] = "Deletion was done"
       else
-        flash[:error] = "Destroy was failed"
+        flash[:error] = "Failed to delete server"
       end
       redirect_to v1_servers_url
     end
