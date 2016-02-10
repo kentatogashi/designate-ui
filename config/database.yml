@@ -19,7 +19,7 @@ default: &default
 
 development:
   <<: *default
-  database: designate
+  database: designate_ui_dev
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: designate
+  database: designate_ui
   username: root
   password: <%= ENV['DESIGNATE_UI_DATABASE_PASSWORD'] %>
