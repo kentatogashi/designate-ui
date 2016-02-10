@@ -17,11 +17,15 @@ module V1
     end
 
     def destroy
-      response = server_destroy params[:name_id]
-      if response
-        flash[:success] = "Deletion was done"
-      else
-        flash[:error] = "Failed to delete server"
+      begin
+        response = server_destroy params[:name_id]
+        if response 
+          flash[:success] = "Deletion was done"
+        else
+          flash[:error] = "Failed to delete server"
+        end
+      rescue => e
+        flash[:error] = "Failed to delete server: #{e.message}"
       end
       redirect_to v1_servers_url
     end
