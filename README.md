@@ -11,10 +11,10 @@ In progress.
 ## Setup & Start
 
 ```sh
-$ git clone git@github.com:kentatogashi/designate-ui.git
+$ git clone https://github.com/kentatogashi/designate-ui.git
 $ cd ~designate-ui
 $ bundle install -j4 --path vendor/bundler
-$ rails s -b 0.0.0.0
+$ bundle exec rails s -b 0.0.0.0
 ```
 
 ## Reference
